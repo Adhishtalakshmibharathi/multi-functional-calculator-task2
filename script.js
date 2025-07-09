@@ -1,56 +1,62 @@
-/* Default light theme */
-body.light-theme {
-  background-color: #ffffff;
-  color: #333333;
+// ✅ Theme Toggle
+const toggleBtn = document.getElementById("toggle-theme");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  document.body.classList.toggle("light-theme");
+});
+
+// ✅ Basic Arithmetic
+function calculateBasic() {
+  const num1 = parseFloat(document.getElementById("num1").value);
+  const num2 = parseFloat(document.getElementById("num2").value);
+  const op = document.getElementById("operation").value;
+  let result;
+
+  switch (op) {
+    case "+":
+      result = num1 + num2;
+      break;
+    case "-":
+      result = num1 - num2;
+      break;
+    case "*":
+      result = num1 * num2;
+      break;
+    case "/":
+      result = num2 !== 0 ? num1 / num2 : "Cannot divide by 0";
+      break;
+    default:
+      result = "Invalid";
+  }
+
+  document.getElementById("basic-result").innerText = "Result: " + result;
 }
 
-/* Dark theme */
-body.dark-theme {
-  background-color: #121212;
-  color: #ffffff;
+// ✅ Circle Area
+function calcCircleArea() {
+  const r = parseFloat(document.getElementById("circle-radius").value);
+  const area = Math.PI * r * r;
+  document.getElementById("circle-result").innerText = "Area: " + area.toFixed(2);
 }
 
-/* Common styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
+// ✅ Rectangle Area
+function calcRectangleArea() {
+  const l = parseFloat(document.getElementById("rect-length").value);
+  const w = parseFloat(document.getElementById("rect-width").value);
+  const area = l * w;
+  document.getElementById("rect-result").innerText = "Area: " + area.toFixed(2);
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
+// ✅ Cube Volume
+function calcCubeVolume() {
+  const s = parseFloat(document.getElementById("cube-side").value);
+  const volume = s ** 3;
+  document.getElementById("cube-result").innerText = "Volume: " + volume.toFixed(2);
 }
 
-.section {
-  margin-top: 30px;
-  padding: 20px;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-input,
-select,
-button {
-  margin: 5px 0;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-}
-
-button {
-  cursor: pointer;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-}
-
-button:hover {
-  background-color: #45a049;
+// ✅ Sphere Volume
+function calcSphereVolume() {
+  const r = parseFloat(document.getElementById("sphere-radius").value);
+  const volume = (4 / 3) * Math.PI * r ** 3;
+  document.getElementById("sphere-result").innerText = "Volume: " + volume.toFixed(2);
 }
